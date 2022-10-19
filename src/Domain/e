@@ -1,0 +1,47 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Domain;
+
+/**
+ *
+ * @author a17000597
+ */
+public class Banco {
+ private String Nombre;
+ private String Direccion;
+ private String Telefono;
+ private Cliente cliente[] = new Cliente[8];
+ 
+ 
+ public Banco(String Nombre, String Direccion,String Telefono){
+ this.Nombre = Nombre;
+ this.Direccion = Direccion;
+ this.Telefono = Telefono;
+ cliente  = new Cliente[8];
+     
+ }
+ public void SetCliente(Cliente cliente){
+    int i = 0;
+     while(this.cliente[i] != null){
+         
+       
+         i++;
+         this.cliente[i] = cliente;
+     }
+ }
+ 
+ 
+public void GenerarReporte(){
+int i = 0;
+ while(this.cliente[i] != null){
+         System.out.println("")
+       
+         i++;
+         
+     }
+}
+ 
+ 
+}

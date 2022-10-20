@@ -8,32 +8,26 @@ package Domain;
  *
  * @author a17000597
  */
-public class CuentaCheques {
-    private double Balance;
+public class CuentaCheques extends Cuenta {
     private double Montosobregiro = 50;
     
     
     public CuentaCheques(double balance, double montosobregiro){
-        this.Balance = balance;
+        this.balance = balance;
         this.Montosobregiro = montosobregiro;
     }
-    public void depositar(double montobalance){
-      if(montobalance > 0){
-        this.Balance = this.Balance + montobalance;    
-      }else{
-       System.out.println("Disculpe pero no puede depositar un valor negativo");   
-      }    
-    }
+    
+   @Override
     public void retirar(double montoretiro){
        if(montoretiro > 0 ){
-          if(this.Balance + Montosobregiro >= montoretiro ){
-            if(montoretiro > this.Balance ){
-            this.Montosobregiro = this.Montosobregiro-(montoretiro - this.Balance);     
-            this.Balance = 0;
+          if(this.balance + Montosobregiro >= montoretiro ){
+            if(montoretiro > this.balance ){
+            this.Montosobregiro = this.Montosobregiro-(montoretiro - this.balance);     
+            this.balance = 0;
                    
                 
             }else{
-                this.Balance = this.Balance-montoretiro;
+                this.balance = this.balance-montoretiro;
             }          
           }else{
               System.out.println("Saldo insuficiente");
@@ -44,7 +38,7 @@ public class CuentaCheques {
     }
     
     public double ImprimirBalance(){
-        return Balance;
+        return balance;
         
     }
     

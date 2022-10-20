@@ -10,11 +10,7 @@ public class MainBanco {
       
 // Banco banco = new Banco("Arkham","Calle 10","9995101565");
        Banco banco = Banco.getInstance("Arkham","Calle 10","9995101565");
-       
-       
-       
-       
-       
+      
        Cliente cliente1 = new Cliente("Patrick","Diaz");
        Cliente cliente2 = new Cliente("Paolo","Herrera");
        

@@ -3,20 +3,20 @@ package Domain;
 
 
 public class Cliente {
-private String Nombre;
-private String Apellido;
+private String nombre;
+private String apellido;
 private CuentaCheques cuentacheques;
 private CuentaAhorro cuentaahorro;
 
 public Cliente (String Nombre,String Apellido){
-   this.Nombre = Nombre;
-   this.Apellido = Apellido;
+   this.nombre = Nombre;
+   this.apellido = Apellido;
 }
 public String GetNombre(){
-    return Nombre;
+    return nombre;
 }
 public String GetApellido(){
-    return Apellido;
+    return apellido;
     
 }
 

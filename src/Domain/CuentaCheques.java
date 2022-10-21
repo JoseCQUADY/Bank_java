@@ -1,43 +1,42 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Domain;
 
-/**
- *
- * @author a17000597
- */
+
 public class CuentaCheques extends Cuenta {
     private double Montosobregiro = 50;
+    private boolean montocorrecto = false;
     
-    
+    public CuentaCheques(double balance){
+     this.balance = balance;
+     this.Montosobregiro = 50;
+        
+    }
     public CuentaCheques(double balance, double montosobregiro){
         this.balance = balance;
         this.Montosobregiro = montosobregiro;
     }
     
    @Override
-    public void retirar(double montoretiro){
-       if(montoretiro > 0 ){
+    public boolean retirar(double montoretiro){
+       if(montoretiro > 0){
           if(this.balance + Montosobregiro >= montoretiro ){
             if(montoretiro > this.balance ){
             this.Montosobregiro = this.Montosobregiro-(montoretiro - this.balance);     
             this.balance = 0;
-                   
-                
+        
             }else{
-                this.balance = this.balance-montoretiro;
-            }          
+                this.balance = this.balance-montoretiro;    
+            }
+            montocorrecto = true;
           }else{
-              System.out.println("Saldo insuficiente");
+            montocorrecto = false;
           }     
-       }else{
-        System.out.println("No se puede retirar salgo negativo");   
-       }   
+       }  
+        return montocorrecto;
     }
     
-    public double ImprimirBalance(){
+    
+    public double getBalance(){
         return balance;
         
     }

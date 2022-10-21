@@ -1,23 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Domain;
+import java.util.ArrayList;
 
 
 public class Banco {
- private String Nombre;
- private String Direccion;
- private String Telefono;
- private Cliente clientes[];
+ private String nombre;
+ private String direccion;
+ private String telefono;
+ private ArrayList<Cliente> clientes = new ArrayList<>();
  private static Banco bancoc;
+ private Cuenta cuenta;
  
  
  private Banco(String Nombre, String Direccion,String Telefono){
- this.Nombre = Nombre;
- this.Direccion = Direccion;
- this.Telefono = Telefono; 
- clientes = new Cliente[8];
+ this.nombre = Nombre;
+ this.direccion = Direccion;
+ this.telefono = Telefono; 
  }
 
  public static Banco getInstance(String Nombre, String Direccion,String Telefono){
@@ -28,51 +26,15 @@ public class Banco {
      return bancoc;
  }
  
- 
- public void SetCliente(Cliente cliente){
+  public void addCustomer(String nombre,String apellido){
     
-      int i = 0;
-        while(clientes[i]!= null){
-        i++;
-        }
-        clientes[i] = cliente;
+     clientes.add(new Cliente(nombre,apellido));
     }
  
-public Cliente GetCliente(String Nombre, String Apellido){
-   int i = 0;
-   while(clientes[i] != null ){
-   if(clientes[i].GetNombre().equals(Nombre) && clientes[i].GetApellido().equals(Apellido)){    
-   
-       return clientes[i];   
-       
-   }
-   
+ public void SetCliente(Cliente cliente){
+    clientes.add(cliente);
+    }
 }
-  return null;
-}
- 
- 
- 
- 
-
- public void GenerarReporte(){
-      int i = 0;
-        while(clientes[i]!= null){
-        System.out.println("=================================================");
-        System.out.println("Bienvenido al banco" + Nombre);
-        System.out.println(clientes[i].GetNombre() +" "+ clientes[i].GetApellido());
-        System.out.println("Su balance de su cuenta de ahorros es : " + clientes[i].GetCuentaAhorros().ImprimirBalance());
-        System.out.println("Si balance de su cuenta de cheques es : " + clientes[i].GetCuentaCheques().ImprimirBalance());
-        i++;
-        }
-     
-     
- }         
-     
- }
- 
-
-     
          
      
 
